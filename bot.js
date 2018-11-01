@@ -5,7 +5,7 @@ const client = new Discord.Client();
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
- client.user.setActivity("Best Gamer x",{type: '`http://www.twitch.tv/KiNg66S')
+ client.user.setActivity("Best Gamer x",{type: '`http://www.twitch.tv/KiNg66S'})
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
