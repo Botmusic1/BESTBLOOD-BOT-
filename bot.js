@@ -196,7 +196,7 @@ client.on('message', message => {
 }
 });
 /////////////Bc
-Client.on("message", message => {
+client.on("message", message => {
     var prefix = "B!";
  
             var args = message.content.substring(prefix.length).split(" ");
