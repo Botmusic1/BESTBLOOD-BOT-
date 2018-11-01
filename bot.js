@@ -473,18 +473,20 @@ setInterval(function(){})
          .setColor("#00FF00")
          .setDescription(`**❓❔❗️    اوامر  بوت❗️❕❓❔**
        
-	  •B!clear<Number>
-	  •B!colors 140
-	  •B!color<Number>
-	  •B!avatar
-	  •B!server
-	  •B!id
-	  •B!mute
-	  •B!unmute
-	  •B!ban
-	  •B!kick
-	  •B!bc
-          •B!ping 
+	  :small_orange_diamond:•B!clear<Number>  مسح برقم 
+	   :small_blue_diamond:•B!colors 140  انشاء الوان 
+	 :small_orange_diamond:•B!color<Number>  اكتب الرقم الذي تريده
+	  :small_blue_diamond:•B!avatar   صوره  
+	 :small_orange_diamond:•B!server   يظهر لك معلومات السرفر
+	   :small_blue_diamond:•B!id امر الايدي 
+	 :small_orange_diamond:•B!mute  اعطاء ميوتي 
+	 :small_orange_diamond:•B!unmute فك الكيوتي 
+	  :small_orange_diamond:•B!ban بند شخص مع السبب 
+	   :small_blue_diamond:•B!kick  كيك شخص مع السبب
+	  :small_orange_diamond:•B!bc  يرسل رسالة لكل السرفر 
+           :small_blue_diamond:•B!mutechannel قفل الشات
+          :small_orange_diamond:•B!unmutechannel فتح الشات 
+           :small_blue_diamond:•B!ping سرعة اتصال البوت بالانترنت
 	  **`)
    message.author.sendEmbed(embed)
    
