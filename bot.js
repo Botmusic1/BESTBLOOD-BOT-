@@ -5,7 +5,7 @@ const client = new Discord.Client();
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
- client.user.setActivity("Best Gamer x",{type: '`http://www.twitch.tv/KiNg66S'})
+ client.user.setActivity("Best Gamer x",{type: '`http://www.twitch.tv/KiNg66S')
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
@@ -35,6 +35,45 @@ client.on('ready', () => {
 
 
 
+var prefix = "B!"
+client.on('message', message => {
+  if (message.author.x5bz) return;
+  if (!message.content.startsWith(prefix)) return;
+
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+
+  if (command == "ban") {
+               if(!message.channel.guild) return message.reply('** This command only for servers**');
+         
+  if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("**You Don't Have ` BAN_MEMBERS ` Permission**");
+  if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("**I Don't Have ` BAN_MEMBERS ` Permission**");
+  let user = message.mentions.users.first();
+  let reason = message.content.split(" ").slice(2).join(" ");
+  /*let b5bzlog = client.channels.find("name", "log");
+
+  if(!b5bzlog) return message.reply("I've detected that this server doesn't have a 5bz-log text channel.");*/
+  if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
+  if(!reason) return message.reply ("**اكتب سبب الطرد**");
+  if (!message.guild.member(user)
+  .bannable) return message.reply("**لايمكنني طرد شخص اعلى من رتبتي يرجه اعطاء البوت رتبه عالي**");
+
+  message.guild.member(user).ban(7, user);
+
+  const banembed = new Discord.RichEmbed()
+  .setAuthor(`BANNED!`, user.displayAvatarURL)
+  .setColor("RANDOM")
+  .setTimestamp()
+  .addField("**User:**",  '**[ ' + `${user.tag}` + ' ]**')
+  .addField("**By:**", '**[ ' + `${message.author.tag}` + ' ]**')
+  .addField("**Reason:**", '**[ ' + `${reason}` + ' ]**')
+  message.channel.send({
+    embed : banembed
+  })
+}
+});
 
 
 
@@ -83,6 +122,29 @@ client.on("message", message => {
 /////////////////////////////////////////////////Avatar
 
 
+client.on('message', message => {
+    if (message.content.startsWith("B!avatar")) {
+if(!message.channel.guild) return;
+
+        var mentionned = message.mentions.users.first();
+
+    var client;
+      if(mentionned){
+          var client = mentionned;
+      } else {
+          var client = message.author;
+
+      }
+
+        const embed = new Discord.RichEmbed()
+                           .addField('Requested by:', "<@" + message.author.id + ">")
+
+        .setColor(000000)
+        .setFooter(اسم بوتك, 'ur bot image link')
+        .setImage(${client.avatarURL})
+      message.channel.sendEmbed(embed);
+    }
+});
 
 //////////////////////////////////////////////////////////////iD
 
@@ -221,7 +283,71 @@ client.on("message", message => {
   
   
   //////////////
+  client.on('message', message => {
+          let args = message.content.split(' ').slice(1);
+   if(message.content.split(' ')[0] == 'B!color'){
+           const embedd = new Discord.RichEmbed()
+     .setFooter('Requested by '+message.author.username, message.author.avatarURL)
+   .setDescription(`**لا يوجد لون بهذا الأسم ** :x: `)
+   .setColor(`ff0000`)
+
+    if(!isNaN(args) && args.length > 0)
+    
+
+if    (!(message.guild.roles.find("name",`${args}`))) return  message.channel.sendEmbed(embedd);
+
+
+       var a = message.guild.roles.find("name",`${args}`)
+                if(!a)return;
+const embed = new Discord.RichEmbed()
+                    
+     .setFooter('Requested by '+message.author.username, message.author.avatarURL)
+   .setDescription(`**Done , تم تغير لونك . :white_check_mark: **`)
+ 
+   .setColor(`${a.hexColor}`)
+  message.channel.sendEmbed(embed);
+          if (!args)return;
+setInterval(function(){})
+                  let count = 0;
+                  let ecount = 0;
+        for(let x = 1; x < 201; x++){
+           
+            message.member.removeRole(message.guild.roles.find("name",`${x}`))
+          
+            }
+                message.member.addRole(message.guild.roles.find("name",`${args}`));
+        
+            
+    }
+});
   
+ client.on('message', function(message) {
+    if(!message.channel.guild) return;
+if(message.content ===  'B!color 140') {
+if(message.member.hasPermission('MANAGE_ROLES')) {
+setInterval(function(){})
+message.channel.send('جاري عمل الالوان |✅')
+}else{
+message.channel.send('ما معاك البرمشن المطلوب  |❌')
+}
+}
+});
+
+client.on('message', message=>{
+if (message.content ===  'B!color 140'){
+if(!message.channel.guild) return;
+if (message.member.hasPermission('MANAGE_ROLES')){
+  setInterval(function(){})
+    let count = 0;
+    let ecount = 0;
+for(let x = 1; x < 141; x++){
+message.guild.createRole({name:x,
+color: 'RANDOM'})
+}
+}
+}
+}); 
+
 ///////////////Clear
 client.on('message', msg => {
 	var prefix = "B!";
@@ -253,6 +379,8 @@ client.on('message', msg => {
 
 
 
+  
+   
    
    
    
@@ -323,54 +451,104 @@ message.channel.sendEmbed(embed)
         })
 
 
-client.on("message", message => {
-	var prefix = "B!";
- if (message.content === "help") {
-	 message.channel.send('**تم ارسالك في الخاص** :mailbox_with_mail: ');
-  const embed = new Discord.RichEmbed() 
-      .setColor("#000000")
-      .setDescription(`
-			  اوامر 
-•B!clear
-•B!kick
-•B!ban
-•B!mute
-•B!unmute
-•B!color 140
-•B!bc
-•B!avatar
-•B!server
-•color<number> 1:140
-•Create Channel Name Welcome
-`)
+		
+		
+		
+		
+		
+		
+client.on('message', message => {
+    if (message.content === "B!help") {
+    let embed = new Discord.RichEmbed()
+  .setAuthor(message.author.username)
+  .setFooter(`© SHYBOY_05 ™.`, 'https://images-ext-2.discordapp.net/external/X9SanEG0s7Dtv3krTgy-kod_fj6JRVJ2AG4JryCiiz0/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/375761288518828042/fffa31c797e88cf059dd6db424ff456a.png?width=80&height=80')
+  .setColor("#000000")
+  .addField("Done | تــــم" , ":envelope: | :sleuth_or_spy::skin-tone-3:شيك علي في الخاص")
+  
+  
+  
+  message.channel.sendEmbed(embed);
+  }
+  });
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  client.on("message", message => {
+    if (message.content === "B!help") {
+     const embed = new Discord.RichEmbed() 
+         .setColor("#00FF00")
+         .setDescription(`**❓❔❗️    اوامر  بوت❗️❕❓❔**
+       
+	  •B!clear<Number>
+	  •B!colors 140
+	  •B!color<Number>
+	  •B!avatar
+	  •B!server
+	  •B!id
+	  •B!mute
+	  •B!unmute
+	  •B!ban
+	  •B!kick
+	  •B!bc
+	  **`)
    message.author.sendEmbed(embed)
-    
-   }
-   }); 
    
+   }
+   });
+  
 
-
-
-
-
-
-
-
+  
+   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+   
+  
+  
+  
+  
+  
+  
+     client.on("message", message => {
+      if (message.content === "B!help") {
+       const embed = new Discord.RichEmbed() 
+           .setColor("#FF00FF")
+           .setFooter('By SHYBOY_05#0885 ')
+           .setDescription(`**__أتمنى يعجبكم البوت يا أغلى ناس ❤️ 💛 💚 💙 💜 🖤__**`)
+     message.author.sendEmbed(embed)
+     
+     }
+     });		
 
 client.login(process.env.BOT_TOKEN);
-
-
-
-
-
-
-
-
-  
-  
-  
-
-
-
-
-
