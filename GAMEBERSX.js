@@ -378,31 +378,7 @@ client.on('message', msg => {
 
 
 
-client.on("message", message => {
-	var prefix = "B!";
- if (message.content === "help") {
-	 message.channel.send('**تم ارسالك في الخاص** :mailbox_with_mail: ');
-  const embed = new Discord.RichEmbed() 
-      .setColor("#000000")
-      .setDescription(`
-			  اوامر 
-•B!clear
-•B!kick
-•B!ban
-•B!mute
-•B!unmute
-•B!color 140
-•B!bc
-•B!avatar
-•B!server
-•color<number> 1:140
-•Create Channel Name Welcome
-`)
-   message.author.sendEmbed(embed)
-    
-   }
-   }); 
-   
+
    
    
    
