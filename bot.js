@@ -146,7 +146,7 @@ client.on('message', message => {
 
 //////////////////////////////////////////////////////////////iD
  client.on('message', message => {
-	 var prefix ="-";
+	 var prefix ="B!";
  if(message.content.startsWith(prefix +"server")){
 if(!message.channel.guild) return message.reply(' ');
 const millis = new Date().getTime() - message.guild.createdAt.getTime();
@@ -331,7 +331,7 @@ client.on('message', msg => {
    
    
    ////server
-   c
+   
 
 
  client.on('guildMemberAdd', member => {
