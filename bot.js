@@ -137,7 +137,7 @@ client.on('message', message => {
         .setTitle('Click Here')
         .setURL(`${omar.avatarURL}`)
         .setImage(`${omar.avatarURL}`)
-        .setFooter('GAMING BOT',client.user.avatarURL) 
+        .setFooter('Best Blood System',client.user.avatarURL) 
       message.channel.sendEmbed(embed);
     }
 });
@@ -510,6 +510,7 @@ client.on('message', message => {
 	  •B!ban
 	  •B!kick
 	  •B!bc
+          •B!ping 
 	  **`)
    message.author.sendEmbed(embed)
    
@@ -549,7 +550,18 @@ client.on('message', message => {
   
   
    
-  
+  ////ping
+client.on('message', message =>{
+    if(message.content === 'B!ping'){
+let start = Date.now(); message.channel.send('pong').then(message => { 
+message.edit(`\`\`\`js
+Time taken: ${Date.now() - start} ms
+Discord API: ${client.ping.toFixed(0)} ms\`\`\``);
+    });
+    }
+});
+
+
   
   
   
