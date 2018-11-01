@@ -283,71 +283,7 @@ Client.on("message", message => {
   
   
   //////////////
-  client.on('message', message => {
-          let args = message.content.split(' ').slice(1);
-   if(message.content.split(' ')[0] == 'B!color'){
-           const embedd = new Discord.RichEmbed()
-     .setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`**لا يوجد لون بهذا الأسم ** :x: `)
-   .setColor(`ff0000`)
-
-    if(!isNaN(args) && args.length > 0)
-    
-
-if    (!(message.guild.roles.find("name",`${args}`))) return  message.channel.sendEmbed(embedd);
-
-
-       var a = message.guild.roles.find("name",`${args}`)
-                if(!a)return;
-const embed = new Discord.RichEmbed()
-                    
-     .setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`**Done , تم تغير لونك . :white_check_mark: **`)
- 
-   .setColor(`${a.hexColor}`)
-  message.channel.sendEmbed(embed);
-          if (!args)return;
-setInterval(function(){})
-                  let count = 0;
-                  let ecount = 0;
-        for(let x = 1; x < 201; x++){
-           
-            message.member.removeRole(message.guild.roles.find("name",`${x}`))
-          
-            }
-                message.member.addRole(message.guild.roles.find("name",`${args}`));
-        
-            
-    }
-});
   
- client.on('message', function(message) {
-    if(!message.channel.guild) return;
-if(message.content ===  'B!color 140') {
-if(message.member.hasPermission('MANAGE_ROLES')) {
-setInterval(function(){})
-message.channel.send('جاري عمل الالوان |✅')
-}else{
-message.channel.send('ما معاك البرمشن المطلوب  |❌')
-}
-}
-});
-
-client.on('message', message=>{
-if (message.content ===  'B!color 140'){
-if(!message.channel.guild) return;
-if (message.member.hasPermission('MANAGE_ROLES')){
-  setInterval(function(){})
-    let count = 0;
-    let ecount = 0;
-for(let x = 1; x < 141; x++){
-message.guild.createRole({name:x,
-color: 'RANDOM'})
-}
-}
-}
-}); 
-
 ///////////////Clear
 client.on('message', msg => {
 	var prefix = "B!";
@@ -447,6 +383,41 @@ message.channel.sendEmbed(embed)
         if (!channel) return;
         channel.send({embed : embed});
         })
+
+
+client.on("message", message => {
+	var prefix = "B!";
+ if (message.content === "help") {
+	 message.channel.send('**تم ارسالك في الخاص** :mailbox_with_mail: ');
+  const embed = new Discord.RichEmbed() 
+      .setColor("#000000")
+      .setDescription(`
+			  اوامر 
+•B!clear
+•B!kick
+•B!ban
+•B!mute
+•B!unmute
+•B!color 140
+•B!bc
+•B!avatar
+•B!server
+•color<number> 1:140
+•Create Channel Name Welcome
+`)
+   message.author.sendEmbed(embed)
+    
+   }
+   }); 
+   
+
+
+
+
+
+
+
+
 
 client.login(process.env.BOT_TOKEN);
 
