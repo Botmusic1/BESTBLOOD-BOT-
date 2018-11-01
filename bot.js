@@ -140,7 +140,7 @@ if(!message.channel.guild) return;
                            .addField('Requested by:', "<@" + message.author.id + ">")
 
         .setColor(000000)
-        .setFooter(اسم بوتك, 'ur bot image link')
+        .setFooter(Best Blood, 'ur bot image link')
         .setImage(${client.avatarURL})
       message.channel.sendEmbed(embed);
     }
